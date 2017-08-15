@@ -4,21 +4,23 @@ contract LandLordContract {
     struct Tenant {
         bytes32 name;   // short name (up to 32 bytes)
         uint amountToPay;
-        address tenant;
+        address tenantAdress;
     }
 
     Tenant[] tenants;
     address landlord;
     uint totalRentPrice;
 
-    function LandLordContract(uint numTenants, uint totalRentPrice) {
+    function LandLordContract(uint numTenants, uint totalPrice) {
         landlord = msg.sender;
         tenants.length = numTenants;
-        this.totalRentPrice = totalRentPrice;
+        totalRentPrice = totalPrice;
     }
 
     function addTenants(Tenant[] tenantsToAdd) {
-        
+        for (uint i = 0; i < tenantsToAdd.length; i++) {
+            tenants.push(tenantsToAdd[i]);
+        }
     }
 
     /// Create a new ballot to choose one of `proposalNames`.

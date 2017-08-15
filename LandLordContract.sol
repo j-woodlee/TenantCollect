@@ -26,7 +26,7 @@ contract LandLordContract {
             name: nameToAdd,
             totalOwed: owed,
             paidSoFar: paid,
-            hasVal = true
+            hasVal: true
         });
     }
 

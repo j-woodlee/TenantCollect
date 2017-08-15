@@ -17,10 +17,12 @@ contract LandLordContract {
         totalRentPrice = totalPrice;
     }
 
-    function addTenants(Tenant[] tenantsToAdd) {
-        for (uint i = 0; i < tenantsToAdd.length; i++) {
-            tenants.push(tenantsToAdd[i]);
-        }
+    function addTenant(bytes32 nameToAdd, uint tenantAmountToPay, address t) {
+            tenants.push(Tenant({
+                name: nameToAdd,
+                amountToPay: tenantAmountToPay,
+                tenantAdress: t
+            }));
     }
 
     /// Create a new ballot to choose one of `proposalNames`.

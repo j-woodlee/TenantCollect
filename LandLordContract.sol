@@ -26,7 +26,7 @@ contract LandLordContract {
         });
     }
 
-    function pay() public returns (uint) {
+    function pay() public payable returns (uint) {
         tenants[msg.sender].paidSoFar += msg.value;
         LogPaymentMade(msg.sender, msg.value);
         return tenants[msg.sender].totalOwed - tenants[msg.sender].paidSoFar;

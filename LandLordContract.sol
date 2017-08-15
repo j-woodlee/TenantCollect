@@ -5,6 +5,7 @@ contract LandLordContract {
         bytes32 name;   // short name (up to 32 bytes)
         uint totalOwed;
         uint paidSoFar;
+        bool hasVal; // default value is false
     }
 
     mapping(address => Tenant) tenants;
@@ -19,10 +20,13 @@ contract LandLordContract {
     }
 
     function addTenant(address t, bytes32 nameToAdd, uint owed, uint paid) {
+        require((msg.sender == landlord) && (!tenants[t].hasVal));
+
         tenants[t] = Tenant({
             name: nameToAdd,
             totalOwed: owed,
-            paidSoFar: paid
+            paidSoFar: paid,
+            hasVal = true
         });
     }
 

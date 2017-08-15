@@ -18,7 +18,7 @@ contract LandLordContract {
         totalRentPrice = totalPrice;
     }
 
-    function addTenant(bytes32 nameToAdd, uint owed, address t, uint paid) {
+    function addTenant(address t, bytes32 nameToAdd, uint owed, uint paid) {
         tenants[t] = Tenant({
             name: nameToAdd,
             totalOwed: owed,

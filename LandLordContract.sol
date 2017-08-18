@@ -14,9 +14,9 @@ contract LandLordContract {
 
     event LogPaymentMade(address accountAddress, uint amount);
 
-    function LandLordContract(uint totalPrice) {
+    function LandLordContract(uint _totalRentPrice) {
         landlord = msg.sender;
-        totalRentPrice = totalPrice;
+        totalRentPrice = _totalRentPrice;
     }
 
     function addTenant(address t, bytes32 nameToAdd, uint owed, uint paid) {
@@ -35,4 +35,10 @@ contract LandLordContract {
         LogPaymentMade(msg.sender, msg.value);
         return tenants[msg.sender].totalOwed - tenants[msg.sender].paidSoFar;
     }
+
+    function getTenant(address _address) returns (bytes32, uint, uint, bool) {
+        return (tenants[_address].name, tenants[_address].totalOwed,
+                tenants[_address].paidSoFar, tenants[_address].hasVal);
+    }
+
 }

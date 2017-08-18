@@ -36,7 +36,7 @@ contract LandLordContract {
         return tenants[msg.sender].totalOwed - tenants[msg.sender].paidSoFar;
     }
 
-    function getTenant(address _address) returns (bytes32, uint, uint, bool) {
+    function getTenant(address _address) public constant returns (bytes32, uint, uint, bool) {
         return (tenants[_address].name, tenants[_address].totalOwed,
                 tenants[_address].paidSoFar, tenants[_address].hasVal);
     }

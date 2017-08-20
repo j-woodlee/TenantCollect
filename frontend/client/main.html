@@ -6,14 +6,11 @@
   <h1>Welcome to Meteor!</h1>
 
   {{> hello}}
-  {{> info}}
 </body>
 
 <template name="hello">
-  <p>Amount of Wei in the account {{addTenant}} {{TemplateVar.get "addTenant"}}.</p>
-</template>
+  <p>Addres of Tenant: {{addTenant}} {{TemplateVar.get "addTenant"}}.</p>
 
-<template name="info">
   <h2>Learn Meteor!</h2>
   <ul>
     <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>

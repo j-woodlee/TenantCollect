@@ -20,17 +20,22 @@ Template.hello.onCreated(function helloOnCreated() {
 });
 
 Template.hello.helpers({
-  addTenant() {
+  addTenant(address, nameToAdd, owed, paid) {
     var template = Template.instance();
 
-    console.log(document.getElementById("address"));
     myContract = web3.eth.contract(ABIArray).at(contractAddress);
+    // console.log(myContract.getTenant(0xF71fcD9B33EC617525951D73EF78CD92aE9069b3));
   }
 });
 
 Template.hello.events({
   'click button'(event, instance) {
+    var address = document.getElementById("address");
+    var name = document.getElementById("name");
+    var owed = document.getElementById("owed");
+    var paid = document.getElementById("paid");
+
     // increment the addTenant when button is clicked
-    instance.addTenant.set(instance.addTenant.get() + 1);
+    instance.addTenant.set();
   },
 });

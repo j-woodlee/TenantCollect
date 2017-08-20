@@ -34,9 +34,9 @@ $(document).ready(function() {
     $("#getTenantButton").click(function() {
         let address = document.getElementById("address").value;
         
-        myContract.getTenant(address, function(err, res) {
+        console.log(myContract.getTenant(address, function(err, res) {
             console.log(res);
-        });
+        }));
     });
 });
 

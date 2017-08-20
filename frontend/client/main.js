@@ -25,7 +25,7 @@ Template.hello.helpers({
 
     console.log(document.getElementById("address"));
     myContract = web3.eth.contract(ABIArray).at(contractAddress);
-  },
+  }
 });
 
 Template.hello.events({

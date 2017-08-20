@@ -21,14 +21,10 @@ Template.hello.onCreated(function helloOnCreated() {
 
 Template.hello.helpers({
   counter() {
-  	var template = Template.instance();
+    var template = Template.instance();
 
-  	myContract = web3.eth.contract(ABIArray).at(contractAddress);
-
-    myContract.addTenant(function(err, res) {
-    	res = 
-    	TemplateVar.set(template, "counter", res);
-    });
+    console.log(document.getElementById("address"));
+    myContract = web3.eth.contract(ABIArray).at(contractAddress);
   },
 });
 

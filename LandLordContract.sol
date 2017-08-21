@@ -8,11 +8,12 @@ contract LandLordContract {
         bool hasVal; // default value is false
     }
 
-    mapping(address => Tenant) tenants;
-    address landlord;
-    uint totalRentPrice;
+    mapping(address => Tenant) public tenants;
+    address public landlord;
+    uint public totalRentPrice;
 
     event LogPaymentMade(address accountAddress, uint amount);
+    event LogAddTenant(address tenantAddress, bytes32 nameToAdd);
 
     function LandLordContract(uint _totalRentPrice) {
         landlord = msg.sender;
@@ -22,6 +23,7 @@ contract LandLordContract {
     function addTenant(address t, bytes32 nameToAdd, uint owed, uint paid) {
         require((msg.sender == landlord) && (!tenants[t].hasVal));
 
+        LogAddTenant(t, nameToAdd);
         tenants[t] = Tenant({
             name: nameToAdd,
             totalOwed: owed,

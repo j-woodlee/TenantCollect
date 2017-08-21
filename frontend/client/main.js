@@ -24,7 +24,7 @@ $(document).ready(function() {
         let owed = document.getElementById("owed").value;
         let paid = document.getElementById("paid").value;
 
-        myContract.addTenant(address, name, owed, paid, function(err, res) {
+        myContract.addTenant.call(address, name, owed, paid, function(err, res) {
             console.log(res);
         });
     });
@@ -39,3 +39,5 @@ $(document).ready(function() {
         }));
     });
 });
+
+//0x2575b15E3D0fe4491E5c978612109c1ffFbF780a
